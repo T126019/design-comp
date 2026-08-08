@@ -35,7 +35,7 @@ const recipes = [
 
 
   {
-    name: "照り焼きコーンマヨのピザ",
+    name: "照り焼きチキンコーンマヨのピザ",
     image: "photo/teriyaki-corn-mayo.png",
     link: "teriyaki.html",
     time: "準備中",
