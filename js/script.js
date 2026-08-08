@@ -165,37 +165,41 @@ function searchRecipes() {const keyword =recipeSearch.value.trim();
 }
 
 
-
 // 検索ページにピザを表示
 
 function displaySearchResults(recipeData) {
 
   // search.html以外では実行しない
-  if (!searchResultList) {return;}
-
+  if (!searchResultList) {
+    return;
+  }
 
   searchResultList.innerHTML = "";
 
+  // 検索結果が0件の場合
+  if (recipeData.length === 0) {
 
-  // 検索結果が0件
-  if (recipeData.length === 0) {searchResultList.innerHTML = `
-
+    searchResultList.innerHTML = `
       <li class="search-no-result">
-
         条件に合うピザがありません。
+      </li>
+    `;
 
-      </li>;return;
+    return;
   }
 
+  recipeData.forEach(function(recipe) {
 
-  recipeData.forEach(function(recipe) {const recipeItem = `
+    const recipeItem = `
       <li>
 
         <a
           href="${recipe.link}"
           class="recipe-card">
 
-          <img src="${recipe.image} alt="${recipe.name}">
+          <img
+            src="${recipe.image}"
+            alt="${recipe.name}">
 
           <div class="recipe-text">
 
@@ -206,17 +210,20 @@ function displaySearchResults(recipeData) {
             <p class="recipe-info">
               作業時間：${recipe.time}
             </p>
+
           </div>
+
         </a>
+
       </li>
     `;
 
-
-    searchResultList.insertAdjacentHTML("beforeend",recipeItem);
-});
-
+    searchResultList.insertAdjacentHTML(
+      "beforeend",
+      recipeItem
+    );
+  });
 }
-
 
 
 // 検索ページの絞り込み
