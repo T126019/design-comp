@@ -1,0 +1,1255 @@
+/* ========================================
+   全体
+======================================== */
+
+body {
+  margin: 0;
+
+  font-family: Arial, "Noto Sans JP", sans-serif;
+
+  color: #333;
+  background-color: #fff;
+}
+
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+
+ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+img {
+  width: 100%;
+  display: block;
+}
+
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+
+  margin: 0 auto;
+}
+
+
+/* ========================================
+   ヘッダー
+======================================== */
+
+.header {
+  width: 90%;
+  max-width: 1000px;
+
+  margin: 0 auto;
+  padding: 20px 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid #ccc;
+}
+
+
+/* ホームボタン */
+
+.logo {
+  margin: 0;
+
+  font-size: 18px;
+}
+
+
+.logo a {
+  padding: 12px 20px;
+  background-color: #fff3a6;
+}
+
+
+/* ヘッダー右側 */
+
+.header-right {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+}
+
+
+/* 料理を探すリンク */
+
+.search-link {
+  padding: 10px 15px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 5px;
+}
+
+
+/* ========================================
+   検索フォーム
+======================================== */
+
+.search-form {
+  display: flex;
+}
+
+
+.search-form input {
+  width: 200px;
+
+  padding: 10px;
+
+  border: 1px solid #ccc;
+  border-right: none;
+}
+
+
+.search-form button {
+  padding: 10px 15px;
+
+  border: 1px solid #ccc;
+
+  background-color: #fff;
+
+  cursor: pointer;
+}
+
+
+.search-form button:hover {
+  background-color: #eee;
+}
+
+
+/* ========================================
+   ダークモードボタン
+======================================== */
+
+.dark-mode-button {
+  padding: 10px 12px;
+
+  border: 1px solid #ccc;
+
+  background-color: #fff;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+
+/* ========================================
+   ホーム
+======================================== */
+
+main {
+  min-height: 600px;
+}
+
+
+.recommend {
+  padding: 60px 0 80px;
+}
+
+
+.heading-group {
+  margin-bottom: 50px;
+
+  text-align: center;
+}
+
+
+.heading-group h2 {
+  margin: 0 0 10px;
+
+  font-size: 30px;
+}
+
+
+.heading-group p {
+  margin: 0;
+
+  color: #666;
+}
+
+
+/* ========================================
+   ピザ一覧
+======================================== */
+
+.recipe-list {
+  max-width: 750px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 50px;
+}
+
+
+/* ピザカード */
+
+.recipe-card {
+  display: block;
+
+  overflow: hidden;
+
+  background-color: #fff;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  transition: 0.3s;
+}
+
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+.recipe-card img {
+  width: 100%;
+  height: 230px;
+
+  object-fit: cover;
+}
+
+
+.recipe-text {
+  padding: 15px;
+}
+
+
+.recipe-name {
+  margin: 0 0 8px;
+
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.recipe-info {
+  margin: 0;
+
+  color: #666;
+
+  font-size: 14px;
+}
+
+
+/* 検索結果なし */
+
+.no-result {
+  grid-column: 1 / -1;
+
+  padding: 40px;
+
+  text-align: center;
+}
+
+
+/* ========================================
+   もっと見る
+======================================== */
+
+.more-button {
+  margin-top: 60px;
+
+  text-align: center;
+}
+
+
+.more-button a {
+  display: inline-block;
+
+  padding: 12px 40px;
+
+  border: 1px solid #333;
+
+  transition: 0.3s;
+}
+
+
+.more-button a:hover {
+  background-color: #333;
+
+  color: #fff;
+}
+
+
+/* ========================================
+   フッター
+======================================== */
+
+.footer {
+  width: 90%;
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  padding: 30px 0;
+
+  border-top: 1px solid #ccc;
+
+  text-align: center;
+}
+
+
+.footer-nav {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 40px;
+
+  margin-bottom: 25px;
+}
+
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
+
+.copyright {
+  margin: 0;
+
+  color: #777;
+
+  font-size: 12px;
+}
+
+
+
+/* ========================================
+   レシピ詳細ページ
+======================================== */
+
+.recipe-main {
+  padding-bottom: 80px;
+}
+
+
+.recipe-section {
+  padding: 70px 0;
+
+  border-top: 1px solid #ddd;
+}
+
+
+/* ========================================
+   完成写真
+======================================== */
+
+.recipe-hero {
+  padding: 60px 0 70px;
+
+  text-align: center;
+}
+
+
+.recipe-main-photo {
+  width: 100%;
+  max-width: 700px;
+
+  margin: 0 auto 40px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+}
+
+
+.recipe-main-photo img {
+  width: 100%;
+
+  aspect-ratio: 4 / 3;
+
+  object-fit: cover;
+}
+
+
+/* タイトル */
+
+.recipe-title {
+  margin: 0 0 20px;
+
+  font-size: 36px;
+}
+
+
+/* 説明 */
+
+.recipe-description {
+  max-width: 650px;
+
+  margin: 0 auto 40px;
+
+  line-height: 1.8;
+
+  color: #666;
+}
+
+
+/* ========================================
+   基本情報
+======================================== */
+
+.recipe-summary {
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+
+.summary-item {
+  padding: 20px;
+
+  text-align: center;
+}
+
+
+.summary-item:nth-child(2) {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+
+.summary-label {
+  margin: 0 0 10px;
+
+  color: #777;
+
+  font-size: 14px;
+}
+
+
+.summary-value {
+  margin: 0;
+
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+/* ========================================
+   材料
+======================================== */
+
+.ingredients-section {
+  background-color: #fffaf2;
+}
+
+
+.ingredient-box {
+  max-width: 650px;
+
+  margin: 0 auto 40px;
+
+  padding: 30px;
+
+  background-color: #fff;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+
+.ingredient-box h3 {
+  margin: 0 0 25px;
+
+  padding-bottom: 10px;
+
+  border-bottom: 2px solid #e6b768;
+
+  font-size: 22px;
+}
+
+
+.ingredient-list {
+  margin: 0;
+}
+
+
+.ingredient-item {
+  padding: 12px 5px;
+
+  display: flex;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #eee;
+}
+
+
+.ingredient-item:last-child {
+  border-bottom: none;
+}
+
+
+.ingredient-item dt,
+.ingredient-item dd {
+  margin: 0;
+}
+
+
+.topping-list li {
+  padding: 12px 5px;
+
+  border-bottom: 1px solid #eee;
+}
+
+
+/* ========================================
+   作り方
+======================================== */
+
+.step {
+  max-width: 900px;
+
+  margin: 0 auto 80px;
+}
+
+
+.step-heading {
+  margin-bottom: 25px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+
+
+.step-number {
+  padding: 8px 15px;
+
+  background-color: #e6b768;
+
+  color: #fff;
+
+  border-radius: 20px;
+
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+.step-heading h3 {
+  margin: 0;
+
+  font-size: 26px;
+}
+
+
+/* 写真＋説明 */
+
+.step-layout {
+  display: grid;
+
+  grid-template-columns: 1fr 1.2fr;
+
+  gap: 40px;
+
+  align-items: start;
+}
+
+
+/* 工程写真の仮置き */
+
+.step-photo {
+  width: 100%;
+
+  aspect-ratio: 4 / 3;
+
+  background-color: #eee;
+
+  border: 1px dashed #aaa;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #777;
+}
+
+
+/* 後で写真を入れたとき */
+
+.step-photo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+.step-text {
+  line-height: 1.8;
+}
+
+
+.step-text p {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+
+.step-text h4 {
+  margin: 0 0 15px;
+}
+
+
+/* 工程内材料 */
+
+.step-ingredients {
+  margin-bottom: 25px;
+
+  padding: 20px;
+
+  background-color: #f7f7f7;
+
+  border-radius: 8px;
+}
+
+
+.step-ingredients li {
+  padding: 5px 0;
+}
+
+
+/* ========================================
+   POINT
+======================================== */
+
+.point {
+  margin: 25px 0;
+
+  padding: 20px;
+
+  background-color: #fff3d6;
+
+  border-left: 5px solid #e6b768;
+
+  border-radius: 5px;
+}
+
+
+.point-title {
+  margin: 0 0 8px !important;
+
+  color: #c17b13;
+
+  font-weight: bold;
+}
+
+
+/* ========================================
+   FAQ
+======================================== */
+
+.faq-section {
+  background-color: #fafafa;
+}
+
+
+.faq-list {
+  max-width: 750px;
+
+  margin: 0 auto;
+}
+
+
+.faq-item {
+  border-bottom: 1px solid #ccc;
+}
+
+
+.faq-question {
+  position: relative;
+
+  width: 100%;
+
+  padding: 22px 50px 22px 15px;
+
+  border: none;
+
+  background-color: transparent;
+
+  text-align: left;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+
+.faq-question::after {
+  content: "＋";
+
+  position: absolute;
+
+  right: 15px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  font-size: 22px;
+}
+
+
+/* 最初は回答を隠す */
+
+.faq-answer {
+  display: none;
+
+  padding: 0 15px 20px;
+
+  line-height: 1.8;
+
+  color: #666;
+}
+
+
+/* JavaScriptでactiveを付けたとき */
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+
+.faq-item.active .faq-question::after {
+  content: "－";
+}
+
+
+/* ========================================
+   他のおすすめ
+======================================== */
+
+.related-list {
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+}
+
+
+.related-list li {
+  text-align: center;
+}
+
+
+.related-list a {
+  display: block;
+
+  transition: 0.3s;
+}
+
+
+.related-list a:hover {
+  transform: translateY(-5px);
+}
+
+
+.related-photo {
+  margin-bottom: 15px;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+}
+
+
+.related-photo img {
+  width: 100%;
+
+  aspect-ratio: 4 / 3;
+
+  object-fit: cover;
+}
+
+
+.related-list p {
+  margin: 0;
+
+  font-weight: bold;
+}
+
+
+/* ========================================
+   ダークモード
+======================================== */
+
+body.dark-mode {
+  background-color: #222;
+
+  color: #eee;
+}
+
+
+body.dark-mode a {
+  color: #eee;
+}
+
+
+body.dark-mode .header,
+body.dark-mode .footer,
+body.dark-mode .recipe-section,
+body.dark-mode .recipe-summary {
+  border-color: #555;
+}
+
+
+body.dark-mode .logo a {
+  background-color: #555;
+}
+
+
+body.dark-mode .search-form input {
+  background-color: #333;
+
+  color: #fff;
+
+  border-color: #666;
+}
+
+
+body.dark-mode .search-form button,
+body.dark-mode .dark-mode-button {
+  background-color: #444;
+
+  color: #fff;
+
+  border-color: #666;
+}
+
+
+body.dark-mode .search-link {
+  border-color: #666;
+}
+
+
+body.dark-mode .recipe-card {
+  background-color: #333;
+
+  border-color: #555;
+}
+
+
+body.dark-mode .recipe-info,
+body.dark-mode .recipe-description,
+body.dark-mode .summary-label,
+body.dark-mode .faq-answer {
+  color: #ccc;
+}
+
+
+body.dark-mode .ingredients-section,
+body.dark-mode .faq-section {
+  background-color: #292929;
+}
+
+
+body.dark-mode .ingredient-box {
+  background-color: #333;
+
+  border-color: #555;
+}
+
+
+body.dark-mode .ingredient-item,
+body.dark-mode .topping-list li,
+body.dark-mode .faq-item {
+  border-color: #555;
+}
+
+
+body.dark-mode .step-ingredients {
+  background-color: #333;
+}
+
+
+body.dark-mode .point {
+  background-color: #493a20;
+}
+
+
+body.dark-mode .point-title {
+  color: #ffd483;
+}
+
+
+body.dark-mode .faq-question {
+  color: #eee;
+}
+
+
+body.dark-mode .step-photo {
+  background-color: #333;
+
+  border-color: #666;
+
+  color: #bbb;
+}
+
+/* ========================================
+   検索ページ
+======================================== */
+
+.search-main {
+  padding-bottom: 80px;
+}
+
+
+.search-section {
+  padding: 60px 0 80px;
+}
+
+
+/* ========================================
+   検索ボックス
+======================================== */
+
+.search-box {
+  max-width: 750px;
+
+  margin: 0 auto 50px;
+
+  padding: 30px;
+
+  background-color: #fffaf2;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+
+.search-box h3 {
+  margin: 0 0 20px;
+
+  font-size: 22px;
+}
+
+
+/* 料理名検索フォーム */
+
+.search-page-form {
+  display: flex;
+
+  gap: 10px;
+}
+
+
+.search-page-form input {
+  flex: 1;
+
+  padding: 12px 15px;
+
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  font-size: 16px;
+}
+
+
+.search-page-form button {
+  padding: 12px 25px;
+
+  border: 1px solid #333;
+  border-radius: 5px;
+
+  background-color: #fff;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+
+.search-page-form button:hover {
+  background-color: #333;
+
+  color: #fff;
+}
+
+
+/* ========================================
+   材料絞り込み
+======================================== */
+
+.filter-box {
+  max-width: 750px;
+
+  margin: 0 auto 70px;
+
+  padding: 30px;
+
+  background-color: #fffaf2;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+
+.filter-box h3 {
+  margin: 0 0 10px;
+
+  font-size: 22px;
+}
+
+
+.filter-box > p {
+  margin: 0 0 25px;
+
+  color: #666;
+}
+
+
+/* チェックボックス一覧 */
+
+.ingredient-filter {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 15px;
+
+  margin-bottom: 30px;
+}
+
+
+.ingredient-filter label {
+  padding: 12px 15px;
+
+  background-color: #fff;
+
+  border: 1px solid #ddd;
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+
+.ingredient-filter label:hover {
+  background-color: #fff3d6;
+}
+
+
+/* チェックボックス */
+
+.ingredient-filter input {
+  margin-right: 8px;
+}
+
+
+/* ========================================
+   絞り込み・リセットボタン
+======================================== */
+
+.filter-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 20px;
+}
+
+
+.filter-buttons button {
+  padding: 12px 25px;
+
+  border: 1px solid #333;
+  border-radius: 5px;
+
+  background-color: #fff;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+
+.filter-buttons button:hover {
+  background-color: #333;
+
+  color: #fff;
+}
+
+
+/* リセットボタン */
+
+#reset-button {
+  border-color: #aaa;
+
+  color: #666;
+}
+
+
+#reset-button:hover {
+  background-color: #777;
+
+  color: #fff;
+}
+
+
+/* ========================================
+   検索結果
+======================================== */
+
+.search-result {
+  padding-top: 20px;
+}
+
+
+.search-result .heading-group {
+  margin-bottom: 40px;
+}
+
+
+/*
+  検索結果の料理一覧は
+  ホームと同じ .recipe-list を利用
+*/
+
+#search-result-list {
+  max-width: 750px;
+
+  margin: 0 auto;
+}
+
+
+/* 結果がない場合 */
+
+.search-no-result {
+  grid-column: 1 / -1;
+
+  padding: 50px 20px;
+
+  text-align: center;
+
+  color: #777;
+}
+
+
+/* ========================================
+   ダークモード
+   検索ページ
+======================================== */
+
+body.dark-mode .search-box,
+body.dark-mode .filter-box {
+  background-color: #292929;
+
+  border-color: #555;
+}
+
+
+body.dark-mode .search-page-form input {
+  background-color: #333;
+
+  color: #fff;
+
+  border-color: #666;
+}
+
+
+body.dark-mode .search-page-form input::placeholder {
+  color: #aaa;
+}
+
+
+body.dark-mode .search-page-form button {
+  background-color: #444;
+
+  color: #fff;
+
+  border-color: #666;
+}
+
+
+body.dark-mode .search-page-form button:hover {
+  background-color: #eee;
+
+  color: #222;
+}
+
+
+/* 材料選択 */
+
+body.dark-mode .filter-box > p {
+  color: #ccc;
+}
+
+
+body.dark-mode .ingredient-filter label {
+  background-color: #333;
+
+  border-color: #555;
+
+  color: #eee;
+}
+
+
+body.dark-mode .ingredient-filter label:hover {
+  background-color: #493a20;
+}
+
+
+/* 絞り込みボタン */
+
+body.dark-mode .filter-buttons button {
+  background-color: #444;
+
+  color: #fff;
+
+  border-color: #666;
+}
+
+
+body.dark-mode .filter-buttons button:hover {
+  background-color: #eee;
+
+  color: #222;
+}
+
+
+body.dark-mode #reset-button {
+  color: #ccc;
+}
+
+
+/* 検索結果なし */
+
+body.dark-mode .search-no-result {
+  color: #bbb;
+}

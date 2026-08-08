@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>お問い合わせ | おうちピザレシピ</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- JavaScript -->
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- =========================
+       ヘッダー
+  ========================== -->
+  <header class="header">
+
+    <h1 class="logo">
+      <a href="index.html">
+        ホーム
+      </a>
+    </h1>
+
+    <div class="header-right">
+
+      <a
+        href="search.html"
+        class="search-link"
+      >
+        料理を探す
+      </a>
+
+      <!-- ダークモード -->
+      <button
+        type="button"
+        class="dark-mode-button"
+        id="dark-mode-button"
+      >
+        🌙
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       メイン
+  ========================== -->
+  <main class="contact-main">
+
+    <section class="contact-section">
+
+      <div class="container">
+
+        <!-- 見出し -->
+        <div class="heading-group">
+
+          <h2>
+            お問い合わせ
+          </h2>
+
+          <p>
+            ご質問やご意見があれば、お気軽にお問い合わせください。
+          </p>
+
+        </div>
+
+
+        <!-- =========================
+             お問い合わせフォーム
+        ========================== -->
+        <form
+          class="contact-form"
+          action="https://api.staticforms.dev/submit"
+          method="POST"
+        >
+
+        <input
+          type="hidden"
+          name="apiKey"
+          value="sf_b3bed8ac397452952a983c6f"
+>
+
+          <!-- 名前 -->
+          <div class="form-item">
+
+            <label for="contact-name">
+              お名前
+            </label>
+
+            <input
+              type="text"
+              id="contact-name"
+              name="name"
+              placeholder="例）山田 太郎"
+              required
+            >
+
+          </div>
+
+
+          <!-- メールアドレス -->
+          <div class="form-item">
+
+            <label for="contact-email">
+              メールアドレス
+            </label>
+
+            <input
+              type="email"
+              id="contact-email"
+              name="email"
+              placeholder="例）example@example.com"
+              required
+            >
+
+          </div>
+
+
+          <!-- 問い合わせの種類 -->
+          <div class="form-item">
+
+            <label for="contact-category">
+              お問い合わせの種類
+            </label>
+
+            <select
+              id="contact-category"
+              name="category"
+              required
+            >
+
+              <option value="">
+                選択してください
+              </option>
+
+              <option value="recipe">
+                レシピについて
+              </option>
+
+              <option value="site">
+                サイトについて
+              </option>
+
+              <option value="request">
+                掲載してほしいピザについて
+              </option>
+
+              <option value="other">
+                その他
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- お問い合わせ内容 -->
+          <div class="form-item">
+
+            <label for="contact-message-text">
+              お問い合わせ内容
+            </label>
+
+            <textarea
+              id="contact-message-text"
+              name="message"
+              rows="8"
+              placeholder="お問い合わせ内容をご入力ください"
+              required
+            ></textarea>
+
+          </div>
+
+
+          <!-- 送信ボタン -->
+          <div class="form-button">
+
+            <button type="submit">
+              送信する
+            </button>
+
+          </div>
+
+        </form>
+
+
+        <!--
+          JavaScriptで送信後のメッセージを表示
+        -->
+        <p
+          class="contact-message"
+          id="contact-message"
+        >
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       フッター
+  ========================== -->
+  <footer class="footer">
+
+    <nav>
+
+      <ul class="footer-nav">
+
+        <li>
+          <a href="index.html">
+            ホーム
+          </a>
+        </li>
+
+        <li>
+          <a href="search.html">
+            料理を探す
+          </a>
+        </li>
+
+        <li>
+          <a href="contact.html">
+            お問い合わせ
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+
+    <p class="copyright">
+      &copy; 2026 おうちピザレシピ
+    </p>
+
+  </footer>
+
+</body>
+
+</html>
