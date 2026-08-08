@@ -1,6 +1,4 @@
-// =====================================
 // ピザのデータ
-// =====================================
 
 const recipes = [
 
@@ -66,63 +64,42 @@ const recipes = [
 ];
 
 
-
-// =====================================
 // HTMLの要素を取得
-// =====================================
-
 
 // ホームページ
-const recipeList =
-  document.querySelector("#recipe-list");
+const recipeList =document.querySelector("#recipe-list");
 
-const searchForm =
-  document.querySelector("#search-form");
+const searchForm =document.querySelector("#search-form");
 
-const recipeSearch =
-  document.querySelector("#recipe-search");
+const recipeSearch =document.querySelector("#recipe-search");
 
 
 // ダークモード
-const darkModeButton =
-  document.querySelector("#dark-mode-button");
+const darkModeButton =document.querySelector("#dark-mode-button");
 
 
 // 検索ページ
-const searchPageForm =
-  document.querySelector("#search-page-form");
+const searchPageForm =document.querySelector("#search-page-form");
 
-const searchPageInput =
-  document.querySelector("#search-page-input");
+const searchPageInput =document.querySelector("#search-page-input");
 
-const ingredientCheckboxes =
-  document.querySelectorAll(".ingredient-checkbox");
+const ingredientCheckboxes =document.querySelectorAll(".ingredient-checkbox");
 
-const filterButton =
-  document.querySelector("#filter-button");
+const filterButton =document.querySelector("#filter-button");
 
-const resetButton =
-  document.querySelector("#reset-button");
+const resetButton =document.querySelector("#reset-button");
 
-const searchResultList =
-  document.querySelector("#search-result-list");
+const searchResultList =document.querySelector("#search-result-list");
 
 
 
-// =====================================
 // ホームページのピザ一覧を表示
-// =====================================
 
 function displayRecipes(recipeData) {
-
   // index.html以外では実行しない
-  if (!recipeList) {
-    return;
-  }
-
+  if (!recipeList) {return;}
 
   recipeList.innerHTML = "";
-
 
   // 検索結果が0件の場合
   if (recipeData.length === 0) {
@@ -145,13 +122,11 @@ function displayRecipes(recipeData) {
 
         <a
           href="${recipe.link}"
-          class="recipe-card"
-        >
+          class="recipe-card">
 
           <img
             src="${recipe.image}"
-            alt="${recipe.name}"
-          >
+            alt="${recipe.name}">
 
           <div class="recipe-text">
 
@@ -162,107 +137,65 @@ function displayRecipes(recipeData) {
             <p class="recipe-info">
               作業時間：${recipe.time}
             </p>
-
           </div>
-
         </a>
-
       </li>
-
     `;
 
 
-    recipeList.insertAdjacentHTML(
-      "beforeend",
-      recipeItem
-    );
-
+    recipeList.insertAdjacentHTML("beforeend",recipeItem);
   });
-
 }
 
 
 
-// =====================================
 // ホームページの料理名検索
-// =====================================
 
-function searchRecipes() {
-
-  const keyword =
-    recipeSearch.value.trim();
-
+function searchRecipes() {const keyword =recipeSearch.value.trim();
 
   // 何も入力されていない場合
-  if (keyword === "") {
+  if (keyword === "") {displayRecipes(recipes);return;}
 
-    displayRecipes(recipes);
+  const filteredRecipes =recipes.filter(function(recipe) {
 
-    return;
-  }
-
-
-  const filteredRecipes =
-    recipes.filter(function(recipe) {
-
-      return recipe.name.includes(keyword);
+    return recipe.name.includes(keyword);
 
     });
-
-
   displayRecipes(filteredRecipes);
-
 }
 
 
 
-// =====================================
 // 検索ページにピザを表示
-// =====================================
 
 function displaySearchResults(recipeData) {
 
   // search.html以外では実行しない
-  if (!searchResultList) {
-    return;
-  }
+  if (!searchResultList) {return;}
 
 
   searchResultList.innerHTML = "";
 
 
   // 検索結果が0件
-  if (recipeData.length === 0) {
-
-    searchResultList.innerHTML = `
+  if (recipeData.length === 0) {searchResultList.innerHTML = `
 
       <li class="search-no-result">
 
         条件に合うピザがありません。
 
-      </li>
-
-    `;
-
-    return;
+      </li>;return;
   }
 
 
-  recipeData.forEach(function(recipe) {
-
-    const recipeItem = `
-
+  recipeData.forEach(function(recipe) {const recipeItem = `
       <li>
 
         <a
           href="${recipe.link}"
-          class="recipe-card"
-        >
+          class="recipe-card">
 
-          <img
-            src="${recipe.image}"
-            alt="${recipe.name}"
-          >
+          <img src="${recipe.image} alt="${recipe.name}">
 
           <div class="recipe-text">
 
@@ -273,122 +206,81 @@ function displaySearchResults(recipeData) {
             <p class="recipe-info">
               作業時間：${recipe.time}
             </p>
-
           </div>
-
         </a>
-
       </li>
-
     `;
 
 
-    searchResultList.insertAdjacentHTML(
-      "beforeend",
-      recipeItem
-    );
-
-  });
+    searchResultList.insertAdjacentHTML("beforeend",recipeItem);
+});
 
 }
 
 
 
-// =====================================
 // 検索ページの絞り込み
-// =====================================
 
 function filterSearchPage() {
-
   // 検索欄の文字を取得
-  const keyword =
-    searchPageInput.value.trim();
+  const keyword =searchPageInput.value.trim();
 
 
   // 選択されている材料を保存する配列
   const selectedIngredients = [];
 
 
-  ingredientCheckboxes.forEach(
-    function(checkbox) {
+  ingredientCheckboxes.forEach(function(checkbox) {
 
       if (checkbox.checked) {
 
-        selectedIngredients.push(
-          checkbox.value
-        );
+        selectedIngredients.push(checkbox.value);
 
       }
-
     }
   );
 
 
   // 条件に合うピザを探す
-  const filteredRecipes =
-    recipes.filter(function(recipe) {
+  const filteredRecipes =recipes.filter(function(recipe) {
 
-
-      // -------------------------
       // 料理名の条件
-      // -------------------------
 
-      const matchesName =
-        keyword === "" ||
+      const matchesName =keyword === "" ||
         recipe.name.includes(keyword);
 
 
-      // -------------------------
       // 材料の条件
-      // -------------------------
 
-      const matchesIngredients =
-        selectedIngredients.every(
+      const matchesIngredients =selectedIngredients.every(
           function(ingredient) {
-
             return recipe.ingredients.includes(
               ingredient
             );
-
           }
         );
 
 
       // 名前と材料の両方に一致
-      return (
-        matchesName &&
-        matchesIngredients
-      );
-
+      return (matchesName && matchesIngredients);
     });
 
 
-  displaySearchResults(
-    filteredRecipes
-  );
+  displaySearchResults(filteredRecipes);
 
 }
 
 
 
-// =====================================
 // 検索条件をリセット
-// =====================================
 
 function resetSearch() {
-
   // 検索欄を空にする
   searchPageInput.value = "";
-
-
+  
   // チェックを全部外す
   ingredientCheckboxes.forEach(
-    function(checkbox) {
-
-      checkbox.checked = false;
-
-    }
-  );
+    function(checkbox) {checkbox.checked = false;});
 
 
   // 全ピザを表示
@@ -398,135 +290,81 @@ function resetSearch() {
 
 
 
-// =====================================
 // ダークモード
-// =====================================
 
-function toggleDarkMode() {
-
-  document.body.classList.toggle(
-    "dark-mode"
-  );
+function toggleDarkMode() {document.body.classList.toggle("dark-mode");
 
 
   // ダークモード中
-  if (
-    document.body.classList.contains(
-      "dark-mode"
-    )
-  ) {
-
+  if (document.body.classList.contains("dark-mode")) 
+  {
     darkModeButton.textContent = "☀️";
-
   }
 
   // 通常モード
-  else {
-
-    darkModeButton.textContent = "🌙";
-
-  }
-
+  else {darkModeButton.textContent = "🌙";}
 }
 
 
 
-// =====================================
 // FAQを使えるようにする
-// =====================================
 
-function setupFAQ() {
-
-  const faqQuestions =
-    document.querySelectorAll(
-      ".faq-question"
+function setupFAQ() {const faqQuestions =document.querySelectorAll(
+    ".faq-question"
     );
 
 
-  faqQuestions.forEach(
-    function(question) {
+  faqQuestions.forEach(function(question) {
 
       question.addEventListener(
         "click",
-        function() {
-
-          const faqItem =
-            question.parentElement;
-
-
-          faqItem.classList.toggle(
-            "active"
-          );
-
-        }
+        function() {const faqItem =question.parentElement;
+          faqItem.classList.toggle("active");}
       );
-
     }
   );
-
 }
 
 
 
-// =====================================
 // ホームページの検索イベント
-// =====================================
 
 if (searchForm) {
-
   searchForm.addEventListener(
     "submit",
     function(event) {
 
       // ページの再読み込みを防ぐ
       event.preventDefault();
-
-
       searchRecipes();
-
     }
   );
-
 }
 
 
 
-// =====================================
 // ダークモードイベント
-// =====================================
 
 if (darkModeButton) {
-
   darkModeButton.addEventListener(
     "click",
-    function() {
-
-      toggleDarkMode();
-
-    }
+    function() {toggleDarkMode();}
   );
-
 }
 
 
 
-// =====================================
 // search.html
 // 料理名検索
-// =====================================
 
 if (searchPageForm) {
 
   searchPageForm.addEventListener(
     "submit",
     function(event) {
-
       // ページの再読み込みを防ぐ
       event.preventDefault();
-
-
       filterSearchPage();
-
     }
   );
 
@@ -534,65 +372,32 @@ if (searchPageForm) {
 
 
 
-// =====================================
 // search.html
 // 材料絞り込みボタン
-// =====================================
 
 if (filterButton) {
-
-  filterButton.addEventListener(
-    "click",
-    function() {
-
-      filterSearchPage();
-
-    }
-  );
-
-}
+  filterButton.addEventListener("click",
+    function() {filterSearchPage(); });}
 
 
 
-// =====================================
 // search.html
 // リセットボタン
-// =====================================
 
-if (resetButton) {
-
-  resetButton.addEventListener(
-    "click",
-    function() {
-
-      resetSearch();
-
-    }
-  );
-
-}
+if (resetButton) {resetButton.addEventListener("click",
+    function() {resetSearch();});}
 
 
 
-// =====================================
 // ページを開いたときの処理
-// =====================================
 
 
 // index.html
-if (recipeList) {
-
-  displayRecipes(recipes);
-
-}
+if (recipeList) {  displayRecipes(recipes);}
 
 
 // search.html
-if (searchResultList) {
-
-  displaySearchResults(recipes);
-
-}
+if (searchResultList) {displaySearchResults(recipes);}
 
 
 // FAQ
@@ -600,13 +405,9 @@ setupFAQ();
 
 
 
-// =====================================
 // Console確認
-// =====================================
 
-console.log(
-  "script.jsが読み込まれました"
-);
+console.log("script.jsが読み込まれました");
 
 
 console.log(recipes);
